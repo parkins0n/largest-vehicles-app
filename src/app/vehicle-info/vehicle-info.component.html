@@ -1,0 +1,29 @@
+<div class="buttons">
+  <button (click)="switchVehicle('car')">Найбільший автомобіль</button>
+  <button (click)="switchVehicle('airplane')">Найбільший літак</button>
+  <button (click)="switchVehicle('ship')">Найбільший корабель</button>
+</div>
+
+<div [ngSwitch]="vehicleType">
+  <div *ngSwitchCase="'car'">
+    <h2>{{ car.name }}</h2>
+    <p>Довжина: {{ car.length }} метри</p>
+    <p>Ціна: {{ car.price | currency:'USD' }}</p>
+    <p>{{ car.description }}</p>
+  </div>
+  <div *ngSwitchCase="'airplane'">
+    <h2>{{ airplane.name }}</h2>
+    <p>Розмах крил: {{ airplane.wingspan }} метри</p>
+    <p>Завершеність: {{ airplane.completion | percent }}</p>
+    <p>{{ airplane.description }}</p>
+  </div>
+  <div *ngSwitchCase="'ship'">
+    <h2>{{ ship.name }}</h2>
+    <p>Довжина: {{ ship.length }} метри</p>
+    <p>Ціна: {{ ship.price | currency:'USD' }}</p>
+    <p>{{ ship.description }}</p>
+  </div>
+  <div *ngSwitchDefault>
+    <p>Виберіть транспортний засіб для відображення інформації.</p>
+  </div>
+</div>
